@@ -9,9 +9,9 @@ import (
 func CopyFilesViaSCP(generatedFolder, remoteIP, directoryName string) error {
 	// Construct the destination path on the remote server
 	remotePath := fmt.Sprintf("/var/www/html/%s", directoryName)
-	fmt.Println("Starting scp process on %v:%v", remoteIP, remotePath)
+	fmt.Println("Starting scp process on %s:%s", remoteIP, remotePath)
 	// Construct the SCP command
-	scpCmd := exec.Command("scp", "-r", generatedFolder, fmt.Sprintf("thatguy@%s:%s", remoteIP, remotePath))
+	scpCmd := exec.Command("scp", "-r", generatedFolder, fmt.Sprintf("oracle@%s:%s", remoteIP, remotePath))
 	scpCmd.Stdout = os.Stdout
 	scpCmd.Stderr = os.Stderr
 
